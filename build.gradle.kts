@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("org.xerial:sqlite-jdbc:3.43.0.0")
 }
 
 kotlin {
@@ -19,4 +20,8 @@ kotlin {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs("--enable-native-access=ALL-UNNAMED")
 }
